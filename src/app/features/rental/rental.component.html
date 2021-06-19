@@ -1,0 +1,7 @@
+<div *ngIf='rentals && !rentals["error"]'>
+  <app-rental-list [rentals]='rentals'></app-rental-list>
+</div>
+<div *ngIf='rentals && rentals["error"]'>
+  <h1>Something went wrong...</h1>
+  <pre>{{rentals.detail}}</pre>
+</div>

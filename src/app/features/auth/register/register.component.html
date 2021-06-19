@@ -1,0 +1,87 @@
+<div class="container-fluid bg-light py-3">
+  <div class="row">
+    <div class="col-md-12 mx-auto">
+      <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="/assets/images/icon-cat-profile-64.png" id="icon" alt="User Icon" />
+          </div>
+
+          <!-- Login Form -->
+          <form #registerForm="ngForm">
+            <div *ngIf="errors.length > 0" class="alert alert-danger">
+            <p *ngFor="let error of errors">
+              {{error.description}}
+            </p>
+            </div>
+            <div class="fadeIn second form-group">
+              <input [(ngModel)] = "formData.username"
+                #username="ngModel"
+                class="form-control input-lg"
+                placeholder="Username"
+                name="username"
+                type="text"
+                required>
+                <div *ngIf="username.invalid && (username.dirty || username.touched)" class="fadeIn alert alert-danger">
+                  <div *ngIf="username.errors.required">
+                    <p>Name is required!</p>
+                  </div>
+                </div>
+            </div>
+            <div class="fadeIn second form-group">
+              <input [(ngModel)] = "formData.email"
+              class="form-control input-lg"
+              placeholder="E-mail Address"
+              name="email"
+              type="text"
+              required>
+            </div>
+            <div class="fadeIn third form-group">
+              <input [(ngModel)] = "formData.password"
+              class="form-control input-lg"
+              placeholder="Password"
+              name="password"
+              value=""
+              type="password"
+              autocomplete="off"
+              required>
+            </div>
+            <div class="fadeIn third form-group">
+              <input [(ngModel)] = "formData.passwordConfirmation"
+              class="form-control input-lg"
+              placeholder="Confirm Password"
+              name="password"
+              value=""
+              type="password"
+              autocomplete="off"
+              required>
+            </div>
+            <div class="fadeIn fourth checkbox">
+              <label class="small">
+                <input (click)="checkTerms()"
+                  name="terms"
+                  type="checkbox"
+                  required>
+                  I have read and agree to the <a href="#">terms of service</a>
+              </label>
+            </div>
+            <input
+              [disabled]="buttonState() || !registerForm.form.valid"
+              (click)="register()"
+              type="submit"
+              class="fadeIn fourth btn-airbnb"
+              value="Register">
+          </form>
+
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>

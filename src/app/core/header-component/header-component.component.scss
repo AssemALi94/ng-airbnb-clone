@@ -1,0 +1,41 @@
+@import 'variables';
+
+.navbar {
+  padding: 20px;
+  margin-bottom: 10px;
+
+  .search {
+    height: 50px;
+    width: 300px;
+  }
+
+  .navbar-brand {
+    margin-right: 30px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: $main_color;
+    font-weight: 500;
+  }
+
+  .nav-item {
+    font-size: 14px;
+  }
+
+  .btn-search {
+    border-color:$main_color;
+    color:$main_color;
+
+    &:hover {
+      background-color:$main_color;
+      color: $light-gray-color;
+    }
+
+    &:focus, &:active {
+      background-color: transparent;
+      border-color: $main_color;
+      color: $main_color;
+    }
+  }
+}
+
+

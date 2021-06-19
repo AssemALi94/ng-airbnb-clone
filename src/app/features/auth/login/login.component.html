@@ -1,0 +1,63 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="/assets/images/icon-cat-profile-64.png" id="icon" alt="User Icon" />
+    </div>
+
+    <div *ngIf="notifyMessage" class="alert alert-success">
+      {{notifyMessage}}
+    </div>
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div *ngIf="errors.length > 0" class="alert alert-danger">
+        <p *ngFor="let error of errors">
+          {{error.description}}
+        </p>
+      </div>
+      <div class="form-group">
+        <input
+        formControlName="email"
+        type="text"
+        id="email"
+        class="fadeIn second"
+        name="email"
+        placeholder="email">
+        <div *ngIf="isValidInput('email')" class="fadeIn alert alert-danger">
+          <div *ngIf="isRequired('email')">
+            <p>Email is required!</p>
+          </div>
+          <div *ngIf="loginForm.controls['email'].errors.pattern">
+            <p>Email must be valid!</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input
+        formControlName="password"
+        type="password"
+        id="password"
+        class="fadeIn third"
+        name="password"
+        autocomplete="off"
+        placeholder="password">
+      </div>
+      <div class="form-group">
+        <input
+
+        type="submit"
+        class="fadeIn fourth btn-airbnb"
+        value="Log In">
+      </div>
+
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>
